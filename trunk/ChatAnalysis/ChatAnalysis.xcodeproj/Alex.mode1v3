@@ -275,7 +275,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>3</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -302,7 +301,7 @@
 							<real>164</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>109 227 1265 787 0 0 1680 1028 </string>
+						<string>112 241 1265 787 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -332,15 +331,15 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FAB13169101CF92900A7E4EE</string>
+										<string>FAB13187101CFD8700A7E4EE</string>
 										<key>history</key>
 										<array>
-											<string>FA784996101C47C700D100E8</string>
 											<string>FAB1313E101CEEDE00A7E4EE</string>
 											<string>FAB1313F101CEEDE00A7E4EE</string>
 											<string>FAB13140101CEEDE00A7E4EE</string>
 											<string>FAB13141101CEEDE00A7E4EE</string>
-											<string>FAB13142101CEEDE00A7E4EE</string>
+											<string>FAB1316D101CFA4F00A7E4EE</string>
+											<string>FAB1316E101CFA4F00A7E4EE</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -355,6 +354,8 @@
 											<string>FAB13149101CEEDE00A7E4EE</string>
 											<string>FAB1314A101CEEDE00A7E4EE</string>
 											<string>FAB1314B101CEEDE00A7E4EE</string>
+											<string>FAB1316F101CFA4F00A7E4EE</string>
+											<string>FAB13170101CFA4F00A7E4EE</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -368,7 +369,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1057, 568}}</string>
 								<key>RubberWindowFrame</key>
-								<string>109 227 1265 787 0 0 1680 1028 </string>
+								<string>112 241 1265 787 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -388,7 +389,7 @@
 								<key>Frame</key>
 								<string>{{0, 573}, {1057, 173}}</string>
 								<key>RubberWindowFrame</key>
-								<string>109 227 1265 787 0 0 1680 1028 </string>
+								<string>112 241 1265 787 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -556,7 +557,7 @@
 		<string>/Users/Alex/chatanalysis/ChatAnalysis/ChatAnalysis.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>109 227 1265 787 0 0 1680 1028 </string>
+	<string>112 241 1265 787 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -900,7 +901,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {650, 209}}</string>
 								<key>RubberWindowFrame</key>
-								<string>81 217 650 250 0 0 1680 1028 </string>
+								<string>11 422 650 250 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -929,7 +930,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>81 217 650 250 0 0 1680 1028 </string>
+			<string>11 422 650 250 0 0 1680 1028 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>

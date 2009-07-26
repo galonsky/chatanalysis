@@ -16,6 +16,7 @@
 - (IBAction)pushButton:(id)sender
 {
 	myPath = @"/Users/Alex/Desktop/test.ichat";
+	freqs = [[NSMutableDictionary alloc] init];
 	[self loadContents];
 }
 
@@ -72,9 +73,21 @@
 		
 		for(NSString *word in words)
 		{
-			NSLog(@"%@", word);
+			if([freqs objectForKey:word] == nil)
+			{
+				[freqs setObject:[NSNumber numberWithInt:1] forKey:word];
+			}
+			else
+			{
+				NSNumber *current = [freqs objectForKey:word];
+				NSNumber *new = [NSNumber numberWithInt: ([current intValue] + 1)];
+				[freqs setObject:new forKey:word];
+			}
 		}
 	}
-	
+	for(NSString *key in freqs)
+	{
+		NSLog(@"%@, %@", key, [freqs objectForKey:key]);
+	}
 }
 @end
