@@ -69,10 +69,12 @@
 	for(int i = 0; i < [instantMessages count]; i++)
 	{
 		NSString *message = [[[instantMessages objectAtIndex:i] text] string];
-		NSArray *words = [message componentsSeparatedByString:@" "];
+		NSArray *words = [message componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@",.!?/()\"* "]];
 		
 		for(NSString *word in words)
 		{
+			word = [word lowercaseString];
+			if([word isEqual:@""]) continue;
 			if([freqs objectForKey:word] == nil)
 			{
 				[freqs setObject:[NSNumber numberWithInt:1] forKey:word];
