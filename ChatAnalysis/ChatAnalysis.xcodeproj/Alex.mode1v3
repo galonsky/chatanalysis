@@ -312,12 +312,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Word.h</string>
+								<string>ChatAppController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -325,21 +327,21 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Word.h</string>
+										<string>ChatAppController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FAB131C3101D0BDC00A7E4EE</string>
+										<string>FAB131D7101D0DAE00A7E4EE</string>
 										<key>history</key>
 										<array>
 											<string>FAB1313E101CEEDE00A7E4EE</string>
 											<string>FAB1313F101CEEDE00A7E4EE</string>
 											<string>FAB13141101CEEDE00A7E4EE</string>
 											<string>FAB1319D101D0A6000A7E4EE</string>
-											<string>FAB1319F101D0A6000A7E4EE</string>
 											<string>FAB131BE101D0BDC00A7E4EE</string>
-											<string>FAB131BF101D0BDC00A7E4EE</string>
-											<string>FAB131C0101D0BDC00A7E4EE</string>
+											<string>FAB131CF101D0DAE00A7E4EE</string>
+											<string>FAB131D0101D0DAE00A7E4EE</string>
+											<string>FAB131D1101D0DAE00A7E4EE</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -380,6 +382,12 @@
 											<string>FAB131BC101D0B5700A7E4EE</string>
 											<string>FAB131C1101D0BDC00A7E4EE</string>
 											<string>FAB131C2101D0BDC00A7E4EE</string>
+											<string>FAB131C9101D0CA600A7E4EE</string>
+											<string>FAB131D2101D0DAE00A7E4EE</string>
+											<string>FAB131D3101D0DAE00A7E4EE</string>
+											<string>FAB131D4101D0DAE00A7E4EE</string>
+											<string>FAB131D5101D0DAE00A7E4EE</string>
+											<string>FAB131D6101D0DAE00A7E4EE</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -401,8 +409,6 @@
 							<string>568pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
