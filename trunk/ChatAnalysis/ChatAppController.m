@@ -88,9 +88,18 @@
 			}
 		}
 	}
-	for(NSString *key in freqs)
+	
+	
+	NSArray *list = [freqs allValues];
+	NSSortDescriptor *sortDescriptor;
+	sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"count" ascending:NO];
+	NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+	NSArray *sortedArray = [list sortedArrayUsingDescriptors:sortDescriptors];
+	
+	
+	for(Word *currentWord in sortedArray)
 	{
-		NSLog(@"%@, %@", key, [[freqs objectForKey:key] valueForKey:@"count"]);
+		NSLog(@"%@, %@", [currentWord valueForKey:@"word"], [currentWord valueForKey:@"count"]);
 	}
 
 }

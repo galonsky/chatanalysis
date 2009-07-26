@@ -22,10 +22,7 @@
 {
 	count++;
 }
-- (NSComparisonResult)compare:(id)otherObject
-{
-	return [count compare:otherObject];
-}
+
 
 @synthesize count;
 @synthesize word;
