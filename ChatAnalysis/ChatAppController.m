@@ -9,6 +9,7 @@
 #import "ChatAppController.h"
 #import "InstantMessage.h"
 #import "Presentity.h"
+#import "Word.h"
 
 
 
@@ -77,19 +78,20 @@
 			if([word isEqual:@""]) continue;
 			if([freqs objectForKey:word] == nil)
 			{
-				[freqs setObject:[NSNumber numberWithInt:1] forKey:word];
+				Word *newWord = [[Word alloc] initWithWord:word];
+				[freqs setObject:newWord forKey:word];
 			}
 			else
 			{
-				NSNumber *current = [freqs objectForKey:word];
-				NSNumber *new = [NSNumber numberWithInt: ([current intValue] + 1)];
-				[freqs setObject:new forKey:word];
+				Word *current = [freqs objectForKey:word];
+				[current increment];
 			}
 		}
 	}
 	for(NSString *key in freqs)
 	{
-		NSLog(@"%@, %@", key, [freqs objectForKey:key]);
+		NSLog(@"%@, %@", key, [[freqs objectForKey:key] valueForKey:@"count"]);
 	}
+
 }
 @end

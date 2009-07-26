@@ -301,7 +301,7 @@
 							<real>164</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>112 241 1265 787 0 0 1680 1028 </string>
+						<string>116 241 1265 787 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -312,14 +312,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ChatAppController.m</string>
+								<string>Word.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,19 +325,21 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ChatAppController.m</string>
+										<string>Word.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FAB13194101CFFDA00A7E4EE</string>
+										<string>FAB131C3101D0BDC00A7E4EE</string>
 										<key>history</key>
 										<array>
 											<string>FAB1313E101CEEDE00A7E4EE</string>
 											<string>FAB1313F101CEEDE00A7E4EE</string>
-											<string>FAB13140101CEEDE00A7E4EE</string>
 											<string>FAB13141101CEEDE00A7E4EE</string>
-											<string>FAB1316D101CFA4F00A7E4EE</string>
-											<string>FAB1316E101CFA4F00A7E4EE</string>
+											<string>FAB1319D101D0A6000A7E4EE</string>
+											<string>FAB1319F101D0A6000A7E4EE</string>
+											<string>FAB131BE101D0BDC00A7E4EE</string>
+											<string>FAB131BF101D0BDC00A7E4EE</string>
+											<string>FAB131C0101D0BDC00A7E4EE</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -356,6 +356,30 @@
 											<string>FAB1314B101CEEDE00A7E4EE</string>
 											<string>FAB1316F101CFA4F00A7E4EE</string>
 											<string>FAB13170101CFA4F00A7E4EE</string>
+											<string>FAB131A2101D0A6000A7E4EE</string>
+											<string>FAB131A3101D0A6000A7E4EE</string>
+											<string>FAB131A4101D0A6000A7E4EE</string>
+											<string>FAB131A5101D0A6000A7E4EE</string>
+											<string>FAB131A6101D0A6000A7E4EE</string>
+											<string>FAB131A7101D0A6000A7E4EE</string>
+											<string>FAB131A8101D0A6000A7E4EE</string>
+											<string>FAB131A9101D0A6000A7E4EE</string>
+											<string>FAB131AA101D0A6000A7E4EE</string>
+											<string>FAB131AB101D0A6000A7E4EE</string>
+											<string>FAB131AC101D0A6000A7E4EE</string>
+											<string>FAB131AD101D0A6000A7E4EE</string>
+											<string>FAB131AE101D0A6000A7E4EE</string>
+											<string>FAB131AF101D0A6000A7E4EE</string>
+											<string>FAB131B0101D0A6000A7E4EE</string>
+											<string>FAB131B1101D0A6000A7E4EE</string>
+											<string>FAB131B2101D0A6000A7E4EE</string>
+											<string>FAB131B3101D0A6000A7E4EE</string>
+											<string>FAB131B4101D0A6000A7E4EE</string>
+											<string>FAB131B5101D0A6000A7E4EE</string>
+											<string>FAB131B6101D0A6000A7E4EE</string>
+											<string>FAB131BC101D0B5700A7E4EE</string>
+											<string>FAB131C1101D0BDC00A7E4EE</string>
+											<string>FAB131C2101D0BDC00A7E4EE</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -369,7 +393,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1057, 568}}</string>
 								<key>RubberWindowFrame</key>
-								<string>112 241 1265 787 0 0 1680 1028 </string>
+								<string>116 241 1265 787 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -377,6 +401,8 @@
 							<string>568pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -389,7 +415,7 @@
 								<key>Frame</key>
 								<string>{{0, 573}, {1057, 173}}</string>
 								<key>RubberWindowFrame</key>
-								<string>112 241 1265 787 0 0 1680 1028 </string>
+								<string>116 241 1265 787 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -557,7 +583,7 @@
 		<string>/Users/Alex/chatanalysis/ChatAnalysis/ChatAnalysis.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>112 241 1265 787 0 0 1680 1028 </string>
+	<string>116 241 1265 787 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
