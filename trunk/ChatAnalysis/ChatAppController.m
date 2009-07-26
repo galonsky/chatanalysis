@@ -65,6 +65,16 @@
 			}
 		}
 	}
-	NSLog(@"%@", [[instantMessages objectAtIndex:0] text]);
+	for(int i = 0; i < [instantMessages count]; i++)
+	{
+		NSString *message = [[[instantMessages objectAtIndex:i] text] string];
+		NSArray *words = [message componentsSeparatedByString:@" "];
+		
+		for(NSString *word in words)
+		{
+			NSLog(@"%@", word);
+		}
+	}
+	
 }
 @end
