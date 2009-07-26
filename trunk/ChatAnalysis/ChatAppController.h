@@ -14,6 +14,7 @@
 	NSArray *chatContents;
 	NSArray *instantMessages;
 	NSMutableDictionary *freqs;
+
 }
 - (IBAction)pushButton:(id)sender;
 - (void)loadContents;

@@ -14,6 +14,7 @@
 		FA7847C8101C36D100D100E8 /* ChatAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7847C7101C36D100D100E8 /* ChatAppController.m */; };
 		FAB1312F101CC7E900A7E4EE /* Presentity.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB1312E101CC7E900A7E4EE /* Presentity.m */; };
 		FAB13132101CC80A00A7E4EE /* InstantMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB13131101CC80A00A7E4EE /* InstantMessage.m */; };
+		FAB13199101D02A500A7E4EE /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB13198101D02A500A7E4EE /* Word.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		FAB1312E101CC7E900A7E4EE /* Presentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Presentity.m; sourceTree = "<group>"; };
 		FAB13130101CC80A00A7E4EE /* InstantMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstantMessage.h; sourceTree = "<group>"; };
 		FAB13131101CC80A00A7E4EE /* InstantMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstantMessage.m; sourceTree = "<group>"; };
+		FAB13197101D02A500A7E4EE /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		FAB13198101D02A500A7E4EE /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,8 @@
 				FAB1312E101CC7E900A7E4EE /* Presentity.m */,
 				FAB13130101CC80A00A7E4EE /* InstantMessage.h */,
 				FAB13131101CC80A00A7E4EE /* InstantMessage.m */,
+				FAB13197101D02A500A7E4EE /* Word.h */,
+				FAB13198101D02A500A7E4EE /* Word.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				FA7847C8101C36D100D100E8 /* ChatAppController.m in Sources */,
 				FAB1312F101CC7E900A7E4EE /* Presentity.m in Sources */,
 				FAB13132101CC80A00A7E4EE /* InstantMessage.m in Sources */,
+				FAB13199101D02A500A7E4EE /* Word.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
