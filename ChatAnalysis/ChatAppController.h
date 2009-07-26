@@ -10,7 +10,11 @@
 
 
 @interface ChatAppController : NSObject {
-
+	NSString *myPath;
+	NSArray *chatContents;
+	NSArray *instantMessages;
 }
+- (IBAction)pushButton:(id)sender;
+- (void)loadContents;
 
 @end
