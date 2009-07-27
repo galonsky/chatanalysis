@@ -10,63 +10,62 @@
 #import "InstantMessage.h"
 #import "Presentity.h"
 #import "Word.h"
+#import "AGRegex.h"
 
 
 
 @implementation ChatAppController
 - (IBAction)pushButton:(id)sender
 {
-	myPath = @"/Users/Alex/Desktop/test.ichat";
 	freqs = [[NSMutableDictionary alloc] init];
-	[self loadContents];
+	[self getFiles];
 }
 
 //From Logorrhea/Logtastic
-- (void)loadContents
+- (void)loadFile:(NSString *)myPath
 {
-	if (chatContents == nil)
+	
+	NSData *chatLog = [[NSData alloc] initWithContentsOfMappedFile:myPath];
+	if ([myPath hasSuffix:@".ichat"]) // check for tiger-style chat transcript
 	{
-		NSData *chatLog = [[NSData alloc] initWithContentsOfMappedFile:myPath];
-		if ([myPath hasSuffix:@".ichat"]) // check for tiger-style chat transcript
+		NS_DURING
+		chatContents = [[NSKeyedUnarchiver unarchiveObjectWithData:chatLog] retain];
+		NS_HANDLER
+		NSLog(@"Caught exception from NSKeyedUnarchiver - %@", [localException reason]);
+		chatContents = nil;
+		NS_ENDHANDLER
+		[chatLog release];
+	}
+	else
+	{
+		NS_DURING
+		chatContents = [[NSUnarchiver unarchiveObjectWithData:chatLog] retain];
+		NS_HANDLER
+		NSLog(@"Caught exception from NSUnarchiver - %@", [localException reason]);
+		chatContents = nil;
+		NS_ENDHANDLER
+		[chatLog release];
+	}
+	
+	if (![chatContents isKindOfClass:[NSArray class]])
+	{
+		[chatContents release];
+		chatContents = nil;
+	}
+	
+	if (chatContents != nil)
+	{
+		for (unsigned int i=0; i < [chatContents count]; i++)
 		{
-			NS_DURING
-			chatContents = [[NSKeyedUnarchiver unarchiveObjectWithData:chatLog] retain];
-			NS_HANDLER
-			NSLog(@"Caught exception from NSKeyedUnarchiver - %@", [localException reason]);
-			chatContents = nil;
-			NS_ENDHANDLER
-			[chatLog release];
-		}
-		else
-		{
-			NS_DURING
-			chatContents = [[NSUnarchiver unarchiveObjectWithData:chatLog] retain];
-			NS_HANDLER
-			NSLog(@"Caught exception from NSUnarchiver - %@", [localException reason]);
-			chatContents = nil;
-			NS_ENDHANDLER
-			[chatLog release];
-		}
-		
-		if (![chatContents isKindOfClass:[NSArray class]])
-		{
-			[chatContents release];
-			chatContents = nil;
-		}
-		
-		if (chatContents != nil)
-		{
-			for (unsigned int i=0; i < [chatContents count]; i++)
+			id obj = [chatContents objectAtIndex:i];
+			if ([obj isKindOfClass:[NSArray class]])
 			{
-				id obj = [chatContents objectAtIndex:i];
-				if ([obj isKindOfClass:[NSArray class]])
-				{
-					instantMessages = [obj retain];
-					break;
-				}
+				instantMessages = [obj retain];
+				break;
 			}
 		}
 	}
+	
 	for(int i = 0; i < [instantMessages count]; i++)
 	{
 		NSString *message = [[[instantMessages objectAtIndex:i] text] string];
@@ -88,8 +87,34 @@
 			}
 		}
 	}
+}
+//From Logorrhea
+- (void)getFiles
+{
+	//Grab path to iChats folder
+    NSString *pathToChats = @"~/Documents/iChats";
 	
+	pathToChats = [pathToChats stringByExpandingTildeInPath];
+	NSFileManager *manager = [NSFileManager defaultManager];
+	NSString *pathToChatsWithSlash = [pathToChats stringByAppendingString:@"/"];
+	NSArray *contents = [manager subpathsAtPath:pathToChats];
 	
+    for (unsigned int i=0; i < [contents count]; i++)
+	{
+		NSString *pathName = [contents objectAtIndex:i];
+		NSString *fileName = [pathName lastPathComponent];
+		NSString *pathExtension = [fileName pathExtension];
+		if([pathExtension isEqual:@"ichat"] || [pathExtension isEqual:@"chat"])
+		{
+			//NSLog(@"%@", [pathToChatsWithSlash stringByAppendingString:pathName]);
+			[self loadFile:[pathToChatsWithSlash stringByAppendingString:pathName]];
+		}
+    }
+    [self sort];
+}
+
+- (void)sort
+{
 	NSArray *list = [freqs allValues];
 	NSSortDescriptor *sortDescriptor;
 	sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"count" ascending:NO];
@@ -101,6 +126,5 @@
 	{
 		NSLog(@"%@, %@", [currentWord valueForKey:@"word"], [currentWord valueForKey:@"count"]);
 	}
-
 }
 @end
