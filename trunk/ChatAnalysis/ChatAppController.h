@@ -13,6 +13,7 @@
 	NSArray *chatContents;
 	NSArray *instantMessages;
 	NSMutableDictionary *freqs;
+	NSMutableDictionary *buddyFreqs;
 
 }
 - (IBAction)pushButton:(id)sender;
