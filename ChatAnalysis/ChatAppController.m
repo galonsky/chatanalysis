@@ -18,6 +18,7 @@
 - (IBAction)pushButton:(id)sender
 {
 	freqs = [[NSMutableDictionary alloc] init];
+	buddyFreqs = [[NSMutableDictionary alloc] init];
 	[self getFiles];
 }
 
@@ -68,8 +69,27 @@
 	
 	for(int i = 0; i < [instantMessages count]; i++)
 	{
+		Presentity *sender = [[instantMessages objectAtIndex:i] sender];
+		
+		//NSLog(@"%@", [sender senderID]);
+		if([sender senderID] == nil) continue;
+		
+		if(![[sender senderID] isEqual:@"bhound89"])
+		{
+			if([buddyFreqs objectForKey:[sender senderID]] == nil)
+			{
+				Word *newName = [[Word alloc] initWithWord:[sender senderID]];
+				[buddyFreqs setObject:newName forKey:[sender senderID]];
+			}
+			else
+			{
+				Word *current = [buddyFreqs objectForKey:[sender senderID]];
+				[current increment];
+			}
+		}
+		
 		NSString *message = [[[instantMessages objectAtIndex:i] text] string];
-		NSArray *words = [message componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@",.!?/()\"* "]];
+		NSArray *words = [message componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@",.!?/()\"*: "]];
 		
 		for(NSString *word in words)
 		{
@@ -115,16 +135,24 @@
 
 - (void)sort
 {
-	NSArray *list = [freqs allValues];
+	NSArray *wordList = [freqs allValues];
+	NSArray *buddyList = [buddyFreqs allValues];
+	
 	NSSortDescriptor *sortDescriptor;
 	sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"count" ascending:NO];
 	NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-	NSArray *sortedArray = [list sortedArrayUsingDescriptors:sortDescriptors];
 	
+	NSArray *sortedWords = [wordList sortedArrayUsingDescriptors:sortDescriptors];
+	NSArray *sortedBuddies = [buddyList sortedArrayUsingDescriptors:sortDescriptors];
 	
-	for(Word *currentWord in sortedArray)
-	{
-		NSLog(@"%@, %@", [currentWord valueForKey:@"word"], [currentWord valueForKey:@"count"]);
-	}
+//	for(Word *buddy in sortedBuddies)
+//	{
+//		NSLog(@"%@, %@", [buddy valueForKey:@"word"], [buddy valueForKey:@"count"]);
+//	}
+	
+//	for(Word *currentWord in sortedWords)
+//	{
+//		NSLog(@"%@, %@", [currentWord valueForKey:@"word"], [currentWord valueForKey:@"count"]);
+//	}
 }
 @end
