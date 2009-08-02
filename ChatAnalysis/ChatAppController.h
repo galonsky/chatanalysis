@@ -10,8 +10,13 @@
 
 
 @interface ChatAppController : NSObject {
+	IBOutlet NSLevelIndicator *completion;
+	IBOutlet NSTableView *wordView;
+	IBOutlet NSTableView *buddyView;
 	NSArray *chatContents;
 	NSArray *instantMessages;
+	NSArray *sortedWords;
+	NSArray *sortedBuddies;
 	NSMutableDictionary *freqs;
 	NSMutableDictionary *buddyFreqs;
 

@@ -10,11 +10,16 @@
 #import "InstantMessage.h"
 #import "Presentity.h"
 #import "Word.h"
-#import "AGRegex.h"
 
 
 
 @implementation ChatAppController
+- (id)init
+{
+	sortedWords = [[NSArray alloc] init];
+	sortedBuddies = [[NSArray alloc] init];
+	return self;
+}
 - (IBAction)pushButton:(id)sender
 {
 	freqs = [[NSMutableDictionary alloc] init];
@@ -118,9 +123,15 @@
 	NSFileManager *manager = [NSFileManager defaultManager];
 	NSString *pathToChatsWithSlash = [pathToChats stringByAppendingString:@"/"];
 	NSArray *contents = [manager subpathsAtPath:pathToChats];
+	float count = [contents count];
+	[completion setIntValue:25];
 	
-    for (unsigned int i=0; i < [contents count]; i++)
+    for (unsigned int i=0; i < count; i++)
 	{
+//		NSNumber *current = [NSNumber numberWithInt:i];
+//		NSLog(@"%f", ([current floatValue] / count)*100);
+//		[completion setFloatValue:([current floatValue] / count)*100];
+		
 		NSString *pathName = [contents objectAtIndex:i];
 		NSString *fileName = [pathName lastPathComponent];
 		NSString *pathExtension = [fileName pathExtension];
@@ -129,8 +140,10 @@
 			//NSLog(@"%@", [pathToChatsWithSlash stringByAppendingString:pathName]);
 			[self loadFile:[pathToChatsWithSlash stringByAppendingString:pathName]];
 		}
+		
     }
     [self sort];
+
 }
 
 - (void)sort
@@ -142,17 +155,42 @@
 	sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"count" ascending:NO];
 	NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
 	
-	NSArray *sortedWords = [wordList sortedArrayUsingDescriptors:sortDescriptors];
-	NSArray *sortedBuddies = [buddyList sortedArrayUsingDescriptors:sortDescriptors];
+	sortedWords = [wordList sortedArrayUsingDescriptors:sortDescriptors];
+	sortedBuddies = [buddyList sortedArrayUsingDescriptors:sortDescriptors];
+	
+	[wordView reloadData];
+	[buddyView reloadData];
 	
 //	for(Word *buddy in sortedBuddies)
 //	{
 //		NSLog(@"%@, %@", [buddy valueForKey:@"word"], [buddy valueForKey:@"count"]);
 //	}
-	
 //	for(Word *currentWord in sortedWords)
 //	{
 //		NSLog(@"%@, %@", [currentWord valueForKey:@"word"], [currentWord valueForKey:@"count"]);
 //	}
 }
+
+- (int)numberOfRowsInTableView:(NSTableView *)tv
+{
+//	if(tv == wordView)
+//	{
+//		return [sortedWords count];
+//	}
+//	
+//	return [sortedBuddies count];
+	return 20;
+}
+
+- (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row
+{
+	if([sortedWords count] == 0) return @"";
+	
+	if(tv == wordView)
+	{
+		return [[sortedWords objectAtIndex:row] valueForKey:[tableColumn identifier]];
+	}
+	return [[sortedBuddies objectAtIndex:row] valueForKey:[tableColumn identifier]];
+}
+
 @end
