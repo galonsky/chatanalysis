@@ -10,7 +10,9 @@
 
 
 @interface ChatAppController : NSObject {
-	IBOutlet NSLevelIndicator *completion;
+	IBOutlet NSSlider *wordSlider;
+	IBOutlet NSSlider *buddySlider;
+	IBOutlet NSProgressIndicator *completion;
 	IBOutlet NSTableView *wordView;
 	IBOutlet NSTableView *buddyView;
 	NSArray *chatContents;
@@ -19,9 +21,12 @@
 	NSArray *sortedBuddies;
 	NSMutableDictionary *freqs;
 	NSMutableDictionary *buddyFreqs;
+	int wordRows;
+	int buddyRows;
 
 }
 - (IBAction)pushButton:(id)sender;
+- (IBAction)changeSlider:(id)sender;
 - (void)loadFile:(NSString *)myPath;
 - (void)getFiles;
 - (void)sort;

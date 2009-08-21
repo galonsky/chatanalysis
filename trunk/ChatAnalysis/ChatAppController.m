@@ -18,12 +18,17 @@
 {
 	sortedWords = [[NSArray alloc] init];
 	sortedBuddies = [[NSArray alloc] init];
+	wordRows = 0;
+	buddyRows = 0;
 	return self;
 }
 - (IBAction)pushButton:(id)sender
 {
 	freqs = [[NSMutableDictionary alloc] init];
 	buddyFreqs = [[NSMutableDictionary alloc] init];
+	wordRows = [wordSlider intValue];
+	buddyRows = [buddySlider intValue];
+	
 	[self getFiles];
 }
 
@@ -124,13 +129,16 @@
 	NSString *pathToChatsWithSlash = [pathToChats stringByAppendingString:@"/"];
 	NSArray *contents = [manager subpathsAtPath:pathToChats];
 	float count = [contents count];
-	[completion setIntValue:25];
 	
     for (unsigned int i=0; i < count; i++)
 	{
-//		NSNumber *current = [NSNumber numberWithInt:i];
-//		NSLog(@"%f", ([current floatValue] / count)*100);
-//		[completion setFloatValue:([current floatValue] / count)*100];
+		NSNumber *current = [NSNumber numberWithInt:i];
+		
+		if(i % 25 == 0)
+		{
+			[completion setDoubleValue:([current doubleValue] / count)*100];
+			[completion displayIfNeeded];
+		}
 		
 		NSString *pathName = [contents objectAtIndex:i];
 		NSString *fileName = [pathName lastPathComponent];
@@ -143,7 +151,14 @@
 		
     }
     [self sort];
-
+	[completion setDoubleValue:100.0];
+	[completion displayIfNeeded];
+	
+	NSNumber *wordCount = [NSNumber numberWithInt:[sortedWords count]];
+	NSNumber *buddyCount = [NSNumber numberWithInt:[sortedBuddies count]];
+	
+	[wordSlider setMaxValue:[wordCount doubleValue]];
+	[buddySlider setMaxValue:[buddyCount doubleValue]];
 }
 
 - (void)sort
@@ -173,13 +188,16 @@
 
 - (int)numberOfRowsInTableView:(NSTableView *)tv
 {
-//	if(tv == wordView)
-//	{
-//		return [sortedWords count];
-//	}
-//	
-//	return [sortedBuddies count];
-	return 20;
+	if([tv isEqualTo:wordView])
+	{
+		if(wordRows <= [sortedWords count]) return wordRows;
+		return [sortedWords count];
+	}
+	else
+	{
+		if(buddyRows <= [sortedBuddies count]) return buddyRows;
+		return [sortedBuddies count];
+	} 
 }
 
 - (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row
@@ -193,4 +211,17 @@
 	return [[sortedBuddies objectAtIndex:row] valueForKey:[tableColumn identifier]];
 }
 
+- (IBAction)changeSlider:(id)sender
+{
+	if([sender isEqualTo:wordSlider])
+	{
+		wordRows = [wordSlider intValue];
+		[wordView reloadData];
+	}
+	else
+	{
+		buddyRows = [buddySlider intValue];
+		[buddyView reloadData];
+	}
+}
 @end
